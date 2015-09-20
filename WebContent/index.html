@@ -9,9 +9,33 @@
 	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular.min.js"></script>
 <script src="js/randSelect.js"></script>
 
+<link rel="stylesheet" href="css/style.css">
+
 </head>
 <body>
+	<div ng-controller="randomSelecterController as randSelect">
 
+		<ul class="unstyled">
+			<li ng-repeat="item in randSelect.items"><input type="checkbox"
+				ng-model="item.checked"> <span
+				class="checked-{{item.checked}}">{{item.text}}</span> <input
+				ng-click="randSelect.removeItem(item)" class="btn-primary"
+				type="submit" value="remove"></li>
+		</ul>
+
+		<form ng-submit="randSelect.addItem()">
+			<input type="text" ng-model="randSelect.itemText" size="30"
+				placeholder="add new item"> <input class="btn-primary"
+				type="submit" value="add">
+		</form>
+
+		<form ng-submit="randSelect.selectItem()">
+			<input class="btn-primary" type="submit" value="Select Item">
+		</form>
+
+		<span>Selected item: {{randSelect.selectedItem.text}}</span>
+
+	</div>
 
 
 </body>
