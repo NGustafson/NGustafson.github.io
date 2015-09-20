@@ -35,20 +35,41 @@ angular.module('randomSelecter', []).controller(
 			}
 			
 			angular.element(document).ready(function() {
-				cookieList = JSON.parse(document.cookie);
+				var userdata = getCookie("userdata");
+				console.log(userdata);
+			
 				randSelect.items = [];
 				
-				for (var i = 0; i < cookieList.length; i++) {
-					randSelect.items.push({
-						text : cookieList[i].text,
-						checked : cookieList[i].checked
-					});
+				if (userdata == "") {
+					
+				} else {
+					var cookieList = JSON.parse(userdata);
+					for (var i = 0; i < cookieList.length; i++) {
+						randSelect.items.push({
+							text : cookieList[i].text,
+							checked : cookieList[i].checked
+						});
+					}
 				}
-				console.log(randSelect.items);
+				
 				$scope.$apply();
 			})
 			
 			$window.onunload = function() {
-				document.cookie = JSON.stringify(randSelect.items);
+				document.cookie = "userdata=" + JSON.stringify(randSelect.items) + ";";
 			}
 		});
+
+function getCookie(cname) {
+	console.log(document.cookie);
+	
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for(var i=0; i<ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') c = c.substring(1);
+        if (c.indexOf(name) == 0) return c.substring(name.length, c.length);
+    }
+    return "";
+}
+
