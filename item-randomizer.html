@@ -4,37 +4,59 @@
     <title>Item Randomizer</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
+    
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css"
       integrity="sha384-AysaV+vQoT3kOAXZkl02PThvDr8HYKPZhNT5h/CXfBThSRXQ6jW5DO2ekP5ViFdi"
       crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/item-randomizer-style.css">
+    
+    <script src="https://www.atlasestateagents.co.uk/javascript/tether.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"
+        integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+        crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/js/bootstrap.min.js"
         integrity="sha384-BLiI7JTZm+JWlgKa0M0kGRpJbF2J8q+qreVrKBC47e3K6BW78kGLrCkeRX6I9RoK"
         crossorigin="anonymous"></script>
+    <script src="./js/item-randomizer-js.js"></script>
     
   </head>
   <body>
-    <div class="row">
-      <div class="col-md-4"></div>
-      <div class="col-md-4">
-        
-        
-        
-        <ul class="list-group">
-          <li class="list-group-item">Item</li>
-          <li class="list-group-item">Item</li>
-          <li class="list-group-item">Item</li>
-        </ul>
-        
-        <div class="input-group">
-          <input type="text" class="form-control" placeholder="Search for...">
-          <span class="input-group-btn">
-            <button class="btn btn-secondary" type="button">Go!</button>
-          </span>
+    <div class="container-fluid">
+      <h2 class="text-xs-center">
+        Item List
+      </h2>
+      <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+          
+          <ul class="list-group pre-scrollable" id="item-list"></ul>
+
+          <div class="input-group">
+            <input type="text" class="form-control" id="new-item-input"
+                   placeholder="Item Name...">
+            <span class="input-group-btn">
+              <button class="btn btn-secondary" id="add-item-button"
+                      type="submit">Add!</button>
+            </span>
+          </div>
+
+
         </div>
-        
+        <div class="col-md-4"></div>
+      </div>
+      <div class="text-xs-center">
+        <br>
+        <button class="btn btn-primary" type="button">
+          test
+        </button>
+        <br>
+        <h2>
+          text
+        </h2>
         
       </div>
-      <div class="col-md-4"></div>
+      
     </div>
+    
   </body>
 </html>
